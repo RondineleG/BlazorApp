@@ -1,5 +1,7 @@
 ﻿@page "/pessoas/lista"
 @using BlazorApp.Shared.Models
+<h1>Pagina Pessoas</h1>
+
 <h3>Lista de Pessoas</h3>
 
 <table>
@@ -12,13 +14,15 @@
     </thead>
 
     <tbody>
-        @foreach(var pessoa in pessoas)
+        @foreach (var pessoa in pessoas)
         {
             <tr>
-            <td>@pessoa.Id</td>
-            <td>@pessoa.Nome</td>
-            <td>@pessoa.Peco</td>
-        </tr> 
+                <td>@pessoa.Id</td>
+                <td>@pessoa.Nome</td>
+                <td>@pessoa.Peco</td>
+            </tr>
+
+
 
         }
     </tbody>
@@ -28,7 +32,7 @@
 @code {
 
     List<Pessoa> pessoas = new List<Pessoa>
-    {
+{
         new Pessoa {Id= 1, Nome="Rondinele", Peco=70},
             new Pessoa {Id= 2, Nome="Gabriela", Peco=70},
         new Pessoa {Id= 3, Nome="Beatriz", Peco=20}
