@@ -4,39 +4,56 @@
 
 <h3>Lista de Pessoas</h3>
 
-<table>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Peso</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var pessoa in pessoas)
-        {
+   @if (pessoas == null)
+    {
+          <text>Carregando....</text>
+    }
+    else   
+    {
+ 
+    <table class="table">
+        <thead>
             <tr>
-                <td>@pessoa.Id</td>
-                <td>@pessoa.Nome</td>
-                <td>@pessoa.Peco</td>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Peso</th>
             </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var pessoa in pessoas)
+            {
+                <tr>
+                    <td>@pessoa.Id</td>
+                    <td>@pessoa.Nome</td>
+                    <td>@pessoa.Peco</td>
+                </tr>
 
 
 
-        }
-    </tbody>
-</table>
-
-
+            }
+        </tbody>
+    </table>
+}
 @code {
 
-    List<Pessoa> pessoas = new List<Pessoa>
+    List<Pessoa> pessoas;
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadPessoas();
+    }
+
+    async Task LoadPessoas()
+    {
+        await Task.Delay(2000);
+
+        pessoas = new List<Pessoa>
 {
-        new Pessoa {Id= 1, Nome="Rondinele", Peco=70},
-            new Pessoa {Id= 2, Nome="Gabriela", Peco=70},
-        new Pessoa {Id= 3, Nome="Beatriz", Peco=20}
-    };
+               new Pessoa {Id= 1, Nome="Rondinele", Peco=70},
+               new Pessoa {Id= 2, Nome="Gabriela", Peco=70},
+               new Pessoa {Id= 3, Nome="Beatriz", Peco=20}
+        };
+    }
 
 
 }
