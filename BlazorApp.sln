@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp", "BlazorApp\Blaz
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.Shared", "BlazorApp.Shared\BlazorApp.Shared.csproj", "{A3A9D696-5CCC-4039-9E17-30D662607984}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp.Server", "BlazorApp.Server\BlazorApp.Server.csproj", "{934CE908-B746-4ADB-A596-E5150851D43B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.Api", "BlazorApp.Server\BlazorApp.Api.csproj", "{934CE908-B746-4ADB-A596-E5150851D43B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,7 @@
 ﻿using BlazorApp.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BlazorApp.Server.Data
+namespace BlazorApp.Api.Data
 {
     public class AppDataContext : DbContext
     {

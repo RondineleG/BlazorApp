@@ -1,11 +1,11 @@
-﻿using BlazorApp.Server.Data;
+﻿using BlazorApp.Api.Data;
 using BlazorApp.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BlazorApp.Server.Controllers
+namespace BlazorApp.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

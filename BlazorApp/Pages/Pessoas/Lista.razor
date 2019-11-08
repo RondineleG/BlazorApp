@@ -1,5 +1,6 @@
 ﻿@page "/pessoas/lista"
 @using BlazorApp.Shared.Models
+@inject HttpClient http
 <h1>Pagina Pessoas</h1>
 
 <h3>Lista de Pessoas</h3>
@@ -32,7 +33,7 @@
 }
 @code {
 
-    List<Pessoa> pessoas;
+    Pessoa[] pessoas;
     protected override async Task OnInitializedAsync()
     {
         await LoadPessoas();
@@ -42,12 +43,8 @@
     {
         await Task.Delay(2000);
 
-        pessoas = new List<Pessoa>
-{
-               new Pessoa {Id= 1, Nome="Rondinele", Peco=70},
-               new Pessoa {Id= 2, Nome="Gabriela", Peco=70},
-               new Pessoa {Id= 3, Nome="Beatriz", Peco=20}
-        };
-    }
+          pessoas = await http.GetJsonAsync<Pessoa[]>("api/Pessoa");
+    
+    } 
 
 }
