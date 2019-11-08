@@ -3,39 +3,46 @@
 @inject HttpClient http
 <h1>Pagina Pessoas</h1>
 
+<!-- Work -->
+<article id="work">
+    <h2 class="major">Work</h2>
+    <span class="image main"><img src="~/images/pic03.jpg" alt="" /></span>
+    <p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
+    <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
+</article>
 <h3>Lista de Pessoas</h3>
-          
-          @if (pessoas == null)
-          {
-              <p><em>Carregando.......</em></p>
-          }
-          else if (!pessoas.Any())
-          {
-              <p><em>Não Tem Nenhum cliente cadastardo.  Adicionie algum.</em></p>
-          }
-          else
-          {
-              <table class="table">
-                  <thead>
-                      <tr>
-                          <th>Id</th>
-                          <th>Nome</th>
-                          <th>Peso</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      @foreach (var pessoa in pessoas)
-                      {
-                          <tr>
-                              <td>@pessoa.Id</td>
-                              <td>@pessoa.Nome</td>
-                              <td>@pessoa.Peso</td>
-                          </tr>
-                      }
-                  </tbody>
-              </table>
-          }
-          
+
+@if (pessoas == null)
+{
+    <p><em>Carregando.......</em></p>
+}
+else if (!pessoas.Any())
+{
+    <p><em>Não Tem Nenhum cliente cadastardo.  Adicionie algum.</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Peso</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pessoa in pessoas)
+            {
+                <tr>
+                    <td>@pessoa.Id</td>
+                    <td>@pessoa.Nome</td>
+                    <td>@pessoa.Peso</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
 
 @code {
 
@@ -45,16 +52,16 @@
 
     protected override async Task OnInitializedAsync()
     {
-        pessoas = new List<Pessoa>
-            {
-             new Pessoa{Id =1, Nome ="Rondinele", Peso=80},
-             new Pessoa{Id =2, Nome ="Mateus", Peso=70},
-             new Pessoa{Id =3, Nome ="Marcelo", Peso=60},
-             new Pessoa{Id =4, Nome ="Julia", Peso=50},
-             new Pessoa{Id =5, Nome ="Daniel", Peso=80},
-             new Pessoa{Id =6, Nome ="Bruno", Peso=50}
-                               
-            };
+        //pessoas = new List<Pessoa>
+        //{
+        //     new Pessoa{Id =1, Nome ="Rondinele", Peso=80},
+        //     new Pessoa{Id =2, Nome ="Mateus", Peso=70},
+        //     new Pessoa{Id =3, Nome ="Marcelo", Peso=60},
+        //     new Pessoa{Id =4, Nome ="Julia", Peso=50},
+        //     new Pessoa{Id =5, Nome ="Daniel", Peso=80},
+        //     new Pessoa{Id =6, Nome ="Bruno", Peso=50}
+
+        //    };
     }
 
 }
