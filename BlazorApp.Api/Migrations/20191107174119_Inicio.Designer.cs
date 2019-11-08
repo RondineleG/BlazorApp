@@ -30,7 +30,7 @@ namespace BlazorApp.Api.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Peco")
+                    b.Property<double>("Peso")
                         .HasColumnType("float");
 
                     b.HasKey("Id");
