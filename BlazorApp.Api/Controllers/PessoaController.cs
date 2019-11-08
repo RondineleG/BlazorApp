@@ -20,7 +20,11 @@ namespace BlazorApp.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Pessoa>>> Get()
         {
-           return await _db.Pessoas.ToListAsync();
+            /// return await _db.Pessoas.ToListAsync();
+            /// 
+            return await _db.Pessoas.AsNoTracking().ToListAsync();
         }
+
+        
     }
 }

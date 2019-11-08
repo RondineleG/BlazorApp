@@ -4,47 +4,48 @@
 <h1>Pagina Pessoas</h1>
 
 <h3>Lista de Pessoas</h3>
+          
+          @if (pessoas == null)
+          {
+              <p><em>Carregando.......</em></p>
+          }
+          else if (!pessoas.Any())
+          {
+              <p><em>Não Tem Nenhum cliente cadastardo.  Adicionie algum.</em></p>
+          }
+          else
+          {
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Id</th>
+                          <th>Nome</th>
+                          <th>Peso</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @foreach (var pessoa in pessoas)
+                      {
+                          <tr>
+                              <td>@pessoa.Id</td>
+                              <td>@pessoa.Nome</td>
+                              <td>@pessoa.Peso</td>
+                          </tr>
+                      }
+                  </tbody>
+              </table>
+          }
+          
 
-   @if (pessoas == null)
-    {
-          <text>Carregando....</text>
-    }
-    else   
-    {
-     <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Peso</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var pessoa in pessoas)
-            {
-                <tr>
-                    <td>@pessoa.Id</td>
-                    <td>@pessoa.Nome</td>
-                    <td>@pessoa.Peso</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
 @code {
 
-    Pessoa[] pessoas;
-    protected override async Task OnInitializedAsync()
+
+    //IList<Pessoa> pessoas;
+    IList<Pessoa> pessoas = new List<Pessoa>();
+
+   protected override async Task OnInitializedAsync()
     {
-        await LoadPessoas();
+        pessoas = await http.GetJsonAsync<List<Pessoa>>("api/pessoa");
     }
 
-    async Task LoadPessoas()
-    {
-        await Task.Delay(2000);
-
-          pessoas = await http.GetJsonAsync<Pessoa[]>("api/Pessoa");
-    
-    } 
-
-}
+ }

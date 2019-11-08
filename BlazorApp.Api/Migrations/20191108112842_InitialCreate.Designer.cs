@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlazorApp.Api.Migrations
 {
     [DbContext(typeof(AppDataContext))]
-    [Migration("20191108105802_AtualizandoModels")]
-    partial class AtualizandoModels
+    [Migration("20191108112842_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

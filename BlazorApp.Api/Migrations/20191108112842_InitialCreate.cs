@@ -2,7 +2,7 @@
 
 namespace BlazorApp.Api.Migrations
 {
-    public partial class Inicio : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace BlazorApp.Api.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(nullable: true),
-                    Peco = table.Column<double>(nullable: false)
+                    Peso = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
