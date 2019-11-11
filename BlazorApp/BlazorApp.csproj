@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BlazorPWA.MSBuild" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.1.0-preview1.19508.20" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.1.0-preview1.19508.20" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.1.0-preview1.19508.20" />
@@ -15,5 +19,15 @@
   <ItemGroup>
     <ProjectReference Include="..\BlazorApp.Shared\BlazorApp.Shared.csproj" />
   </ItemGroup>
+  <PropertyGroup>
+    <ServiceWorkerCacheVersion>220</ServiceWorkerCacheVersion>
+    <ServiceWorkerForce>true</ServiceWorkerForce>
+
+    <ServiceWorkerRegisterInstallableType>installable-blazor</ServiceWorkerRegisterInstallableType>
+
+
+    <ManifestShortName>Blazor App</ManifestShortName>
+    <ManifestLongName>Blazor App PWA</ManifestLongName>
+  </PropertyGroup>
   
 </Project>
