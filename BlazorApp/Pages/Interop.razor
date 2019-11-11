@@ -1,0 +1,14 @@
+﻿@page "/interop"
+@inject IJSRuntime JsRuntime
+
+<h3>Interoperabilidade de C# com JS </h3>   
+
+<button class="btn btn-danger" @onclick="MostrarAlert">Mostrar Alert</button>
+  
+@code
+{
+    async Task MostrarAlert()
+    {
+        await JsRuntime.InvokeVoidAsync(identifier: "criarAlert");
+    }
+}
