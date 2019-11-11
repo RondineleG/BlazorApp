@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BlazorPWA.MSBuild" Version="1.0.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.1.0-preview1.19508.20" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.1.0-preview1.19508.20" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.HttpClient" Version="3.1.0-preview1.19508.20" />
@@ -19,15 +15,29 @@
   <ItemGroup>
     <ProjectReference Include="..\BlazorApp.Shared\BlazorApp.Shared.csproj" />
   </ItemGroup>
+  <Target Name="PWAExclude" BeforeTargets="CreatePWA">
+    <PropertyGroup>
+      <ServiceWorkerPreCacheExcludeFiles>
+        $(OutputPath)dist\_redirects;
+        $(WWWRoot)_redirects;
+      </ServiceWorkerPreCacheExcludeFiles>
+    </PropertyGroup>
+    <Message Importance="high" Text="Removing: $(ServiceWorkerPreCacheExcludeFiles)" />
+  </Target>
+
   <PropertyGroup>
-    <ServiceWorkerCacheVersion>220</ServiceWorkerCacheVersion>
+    <ServiceWorkerCacheVersion>7</ServiceWorkerCacheVersion>
     <ServiceWorkerForce>true</ServiceWorkerForce>
 
     <ServiceWorkerRegisterInstallableType>installable-blazor</ServiceWorkerRegisterInstallableType>
 
-
-    <ManifestShortName>Blazor App</ManifestShortName>
+    <ManifestShortName>Blazor PWA</ManifestShortName>
     <ManifestLongName>Blazor App PWA</ManifestLongName>
   </PropertyGroup>
-  
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
 </Project>
