@@ -16,6 +16,7 @@ const requiredFiles = [
 "/_framework/_bin/BlazorApp.pdb",
 "/_framework/_bin/BlazorApp.Shared.dll",
 "/_framework/_bin/BlazorApp.Shared.pdb",
+"/_framework/_bin/MatBlazor.dll",
 "/_framework/_bin/Microsoft.AspNetCore.Authorization.dll",
 "/_framework/_bin/Microsoft.AspNetCore.Blazor.dll",
 "/_framework/_bin/Microsoft.AspNetCore.Blazor.HttpClient.dll",

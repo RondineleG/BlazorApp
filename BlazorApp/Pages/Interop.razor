@@ -24,30 +24,32 @@
 <h3>Focus TextBox</h3>
 <br />
 <br />
-<input style="background-color:#808080; text-align:center; color:#ff0000;" @ref="InputToFocus"/>
+<input style="background-color:#808080; text-align:center; color:#ff0000;" @ref="InputToFocus" />
 
 <button class="btn btn-warning" @onclick="Focus">Focus</button>
 <br />
 <br />
 
+<MatButton> Teste </MatButton >
+
 @code
 {
     string fazerPerqunta = String.Empty;
     ElementReference InputToFocus;
-   
+
     async Task Focus()
     {
 
-        await JsRuntime.InvokeVoidAsync(identifier:"focusCanpo", InputToFocus);
-         
+        await JsRuntime.InvokeVoidAsync(identifier: "focusCanpo", InputToFocus);
+
     }
-     
+
     async Task FacaPerqunta()
     {
-       var response = await JsRuntime.InvokeAsync<string>(identifier: "criarPrompt",
-           fazerPerqunta);
+        var response = await JsRuntime.InvokeAsync<string>(identifier: "criarPrompt",
+            fazerPerqunta);
 
-          await JsRuntime.InvokeVoidAsync(identifier: "pegarElemento", "pergunta", response);
+        await JsRuntime.InvokeVoidAsync(identifier: "pegarElemento", "pergunta", response);
     }
 
     async Task MostrarAlert()
