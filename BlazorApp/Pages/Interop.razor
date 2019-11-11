@@ -1,0 +1,59 @@
+﻿@page "/interop"
+@inject IJSRuntime JsRuntime
+
+<h1>Interoperabilidade de C# com JS </h1>
+
+<h3>Criando Alert</h3>
+<button class="btn btn-danger" @onclick="MostrarAlert">Mostrar Alert</button>
+<br />
+<br />
+<br />
+<h3>Faça uma pergunta</h3>
+<br />
+<br />
+<input style="background-color:#029c; text-align:center; color:saddlebrown;" @bind="fazerPerqunta" />
+
+<button class="btn btn-success" @onclick="FacaPerqunta">Pergunta</button>
+<br />
+<br />
+<div>
+    O valor digitado e :<span id="pergunta"></span>
+</div>
+
+
+<h3>Focus TextBox</h3>
+<br />
+<br />
+<input style="background-color:#808080; text-align:center; color:#ff0000;" @ref="InputToFocus" />
+
+<button class="btn btn-warning" @onclick="Focus">Focus</button>
+<br />
+<br />
+
+<MatButton> Teste </MatButton >
+
+@code
+{
+    string fazerPerqunta = String.Empty;
+    ElementReference InputToFocus;
+
+    async Task Focus()
+    {
+
+        await JsRuntime.InvokeVoidAsync(identifier: "focusCanpo", InputToFocus);
+
+    }
+
+    async Task FacaPerqunta()
+    {
+        var response = await JsRuntime.InvokeAsync<string>(identifier: "criarPrompt",
+            fazerPerqunta);
+
+        await JsRuntime.InvokeVoidAsync(identifier: "pegarElemento", "pergunta", response);
+    }
+
+    async Task MostrarAlert()
+    {
+        await JsRuntime.InvokeVoidAsync(identifier: "criarAlert");
+    }
+}
