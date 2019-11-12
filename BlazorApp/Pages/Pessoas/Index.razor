@@ -1,6 +1,107 @@
-﻿<h3>Index</h3>
+﻿@using BlazorApp.Shared.Models
 
-@code {
+<div class="row mb-3">
+    <div class="col-6">
+        <h3>Criar Nova Pessoa</h3>
+        <div>
+
+            <input type="text" id="name" @bind="@pessoa.Nome" class="form-control" />
+            <br />
+            <textarea @bind="@pessoa.Descricao" class="form-control"></textarea>
+            <br />
+
+            @if (ShowConfirmEdit)
+            {
+                <button class="btn btn-primary btn-lg" @onclick="ConfirmEditBug">Apply Edit</button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-primary btn-lg" @onclick="AddBug">Add</button>
+            }
+
+
+        </div>
+    </div>
+</div>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Descricao</th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < pessoas.Count; i++)
+        {
+            var pessoa = pessoas[i];
+            <tr>
+
+                <td>@(i + 1)</td>
+                <td>@pessoa.Id</td>
+                <td>@pessoa.Nome</td>
+                <td>@pessoa.Descricao</td>
+
+                <td>
+                    <a class="btn btn-light">Details</a>
+                    <a class="btn btn-danger" @onclick="()=>RemoveBug(pessoa)">Delete</a>
+                    <a class="btn btn-primary" @onclick="()=>EditBug(pessoa)">Edit</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@code{
+    private Pessoa pessoa = new Pessoa();
+    bool ShowConfirmEdit;
+    public int counter;
+
+    public IList<Pessoa> pessoas { get; set; }
+
+    protected override void OnInitialized()
+    {
+        counter = 1;
+        ShowConfirmEdit = false;
+        
+    }
+
+    private void AddBug()
+    {
+        if (ShowConfirmEdit)
+        {
+            return;
+        }
+         
+
+        pessoas.Add(pessoa);
+        pessoa = new Pessoa();
+    }
+
+    private void RemoveBug(Pessoa bug)
+    {
+        
+
+        pessoas.Remove(bug);
+    }
+
+    private void EditBug(Pessoa bug)
+    {
+        ShowConfirmEdit = true;
+        pessoa = bug;
+    }
+
+    private async Task ConfirmEditBug()
+    {
+         
+        pessoa = new Pessoa();
+    }
 
 
 }
