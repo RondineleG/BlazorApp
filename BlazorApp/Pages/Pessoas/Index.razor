@@ -1,4 +1,5 @@
-﻿@using BlazorApp.Shared.Models
+﻿@page "/pessoas/index"
+@using BlazorApp.Shared.Models
 
 <div class="row mb-3">
     <div class="col-6">
@@ -69,7 +70,7 @@
     {
         counter = 1;
         ShowConfirmEdit = false;
-        
+
     }
 
     private void AddBug()
@@ -78,7 +79,7 @@
         {
             return;
         }
-         
+
 
         pessoas.Add(pessoa);
         pessoa = new Pessoa();
@@ -86,7 +87,7 @@
 
     private void RemoveBug(Pessoa bug)
     {
-        
+
 
         pessoas.Remove(bug);
     }
@@ -99,7 +100,7 @@
 
     private async Task ConfirmEditBug()
     {
-         
+
         pessoa = new Pessoa();
     }
 
