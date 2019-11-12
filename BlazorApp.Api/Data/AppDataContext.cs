@@ -10,6 +10,10 @@ namespace BlazorApp.Api.Data
         {
 
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
 
         public DbSet<Pessoa> Pessoas { get; set; }
     }
