@@ -66,12 +66,12 @@ app {
     }
 
         .nav-item a.active {
-            background-color: rgba(255,255,255,0.25);
+            background-color: #54595f;
             color: white;
         }
 
         .nav-item a:hover {
-            background-color: rgba(255,255,255,0.1);
+            background-color: #54595f;
             color: white;
         }
 
@@ -119,7 +119,7 @@ app {
 }
 
 .navbar-toggler {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #029c;
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -162,11 +162,11 @@ app {
         color:#ffffff;
     }
 
-    .main .top-row a {
-        color: #fff;
-        padding: 10px;
-        background-color: rgba(255,255,255,0.25);
-    }
+        .main .top-row a {
+            color: #fff;
+            padding: 10px;
+            background-color: #029c;
+        }
 
     .main .top-row a:hover {
         background-color: rgba(255,255,255,0.1);
@@ -205,7 +205,7 @@ app {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background-color: #298083;
+    background-color: #029c;
     display: inline-block;
     -webkit-animation: grow 2.1s infinite ease-in-out both;
     animation: grow 2.1s infinite ease-in-out both;
