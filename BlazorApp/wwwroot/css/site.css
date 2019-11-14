@@ -1,4 +1,4 @@
-﻿@import url('assets/open-iconic/font/css/open-iconic-bootstrap.min.css');
+﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -66,12 +66,12 @@ app {
     }
 
         .nav-item a.active {
-            background-color: #54595f;
+            background-color: rgba(255,255,255,0.25);
             color: white;
         }
 
         .nav-item a:hover {
-            background-color: #54595f;
+            background-color: rgba(255,255,255,0.1);
             color: white;
         }
 
@@ -119,7 +119,7 @@ app {
 }
 
 .navbar-toggler {
-    background-color: #029c;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -162,11 +162,11 @@ app {
         color:#ffffff;
     }
 
-        .main .top-row a {
-            color: #fff;
-            padding: 10px;
-            background-color: #029c;
-        }
+    .main .top-row a {
+        color: #fff;
+        padding: 10px;
+        background-color: rgba(255,255,255,0.25);
+    }
 
     .main .top-row a:hover {
         background-color: rgba(255,255,255,0.1);
@@ -205,7 +205,7 @@ app {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background-color: #029c;
+    background-color: #298083;
     display: inline-block;
     -webkit-animation: grow 2.1s infinite ease-in-out both;
     animation: grow 2.1s infinite ease-in-out both;

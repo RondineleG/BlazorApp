@@ -16,15 +16,14 @@
   <ItemGroup>
     <ProjectReference Include="..\BlazorApp.Shared\BlazorApp.Shared.csproj" />
   </ItemGroup>
-  <PropertyGroup>
-    <ServiceWorkerCacheVersion>220</ServiceWorkerCacheVersion>
-    <ServiceWorkerForce>true</ServiceWorkerForce>
 
-    <ServiceWorkerRegisterInstallableType>installable-blazor</ServiceWorkerRegisterInstallableType>
+<PropertyGroup>
+    <BlazorLinkOnBuild  Condition="'$(Configuration)'!='Release'">false</BlazorLinkOnBuild>
+</PropertyGroup>
 
+  <ItemGroup>
+    <!-- extends watching group to include *.razor files -->
+    <Watch Include="..\BlazorApp\**\*.razor" />
+</ItemGroup>
 
-    <ManifestShortName>Blazor App</ManifestShortName>
-    <ManifestLongName>Blazor App PWA</ManifestLongName>
-  </PropertyGroup>
-  
 </Project>
