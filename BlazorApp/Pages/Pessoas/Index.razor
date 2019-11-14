@@ -1,0 +1,80 @@
+﻿@page "/pessoas/index"
+@using BlazorApp.Shared.Models
+@inject HttpClient http
+@using MatBlazor
+
+<article id="work">
+    <h2 class="major">Pessoas</h2>
+</article>
+<h3>Lista de Pessoas</h3>
+
+@if (pessoas == null)
+{
+    <p><em>Carregando.......</em></p>
+}
+else if (!pessoas.Any())
+{
+    <div class="row mb-3">
+        <div class="col-6">
+            <h3>Criar Nova Pessoa</h3>
+            <div>
+
+                <input type="text" id="name" class="form-control" />
+                <br />
+                <textarea class="form-control"></textarea>
+                <br />
+
+                <button class="btn btn-primary btn-lg">Editar</button>
+
+                <button type="submit" class="btn btn-primary btn-lg">Novo</button>
+
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Descricao</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pessoa in pessoas)
+            {
+                <tr>
+                    <td>@pessoa.Id</td>
+                    <td>@pessoa.Nome</td>
+                    <td>@pessoa.Descricao</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
+@code {
+
+
+    //IList<Pessoa> pessoas;
+    IList<Pessoa> pessoas = new List<Pessoa>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        pessoas = new List<Pessoa>
+{
+             new Pessoa{Id =1, Nome ="Rondinele", Descricao="Desenvolvedor C#"},
+             new Pessoa{Id =2, Nome ="Mateus", Descricao="Desenvolvedor Java"},
+             new Pessoa{Id =3, Nome ="Marcelo", Descricao="Desenvolvedor PHP"},
+             new Pessoa{Id =4, Nome ="Julia", Descricao="Desenvolvedor Python"},
+             new Pessoa{Id =5, Nome ="Daniel", Descricao="Desenvolvedor PHP"},
+             new Pessoa{Id =6, Nome ="Bruno", Descricao="Desenvolvedor Python"}
+
+            };
+    }
+
+}
