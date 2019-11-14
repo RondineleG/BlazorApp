@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LiveReload.NET" Version="1.0.3" />
     <PackageReference Include="MatBlazor" Version="1.10.1" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor" Version="3.1.0-preview1.19508.20" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.1.0-preview1.19508.20" PrivateAssets="all" />
